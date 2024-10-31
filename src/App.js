@@ -1,12 +1,17 @@
 import React from 'react';
-import { Container, Box, Typography, Button, Link, useMediaQuery } from '@mui/material';
+import { Container, Box, Typography, Button, Link, useMediaQuery, Fab } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import almalogo from './almalogo.jpg';
 import fondo from './fondo.png'
+import { FaInstagram } from 'react-icons/fa';
 function App() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Adjusts for mobile screens
-  
+  const instagramUrl = 'https://www.instagram.com/almas.tarot/'; // Replace with your Instagram URL
+
+  const handleRedirect = () => {
+    window.open(instagramUrl, '_blank'); // Opens Instagram in a new tab
+  };
   return (
     <Container
       sx={{
@@ -41,13 +46,13 @@ function App() {
         rel="noopener noreferrer"
         underline="none"
       >
-        <Typography 
-          variant="h6" 
-          color="textPrimary" 
-          sx={{ 
-            fontWeight: 'bold', 
+        <Typography
+          variant="h6"
+          color="textPrimary"
+          sx={{
+            fontWeight: 'bold',
             fontSize: isMobile ? '1rem' : '1.25rem',
-            marginBottom: 2 
+            marginBottom: 2
           }}
         >
           @almas.tarot
@@ -114,6 +119,23 @@ function App() {
       >
         Mi libro "Amor de Almas"
       </Button>
+
+      <Fab
+        color="secondary"
+        onClick={handleRedirect}
+        sx={{
+          position: 'fixed',
+          bottom: { xs: 16, md: 24 },
+          right: { xs: 16, md: 24 },
+          backgroundColor: '#E1306C',
+          '&:hover': {
+            backgroundColor: '#C13584',
+          },
+          zIndex: 1000,
+        }}
+      >
+        <FaInstagram size={24} color="white" />
+      </Fab>
     </Container>
   );
 }

@@ -81,7 +81,7 @@ Luego te comparto la información y si lo necesitas, hacemos una videollamada.`}
           boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
         }}
       >
-        Valor de la sesión: $15000
+        Valor de la sesión: $20000
       </Typography>
     </Container>
   );

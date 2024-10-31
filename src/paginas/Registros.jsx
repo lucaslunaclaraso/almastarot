@@ -1,12 +1,22 @@
 import React from 'react';
-import { Container, Box, Typography, useMediaQuery } from '@mui/material';
+import { Container, Box, Typography, useMediaQuery, Fab } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import almalogo from '../almalogo.jpg';
 import fondo from '../fondo.png'
+import { FaHome, FaInstagram } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 function Registros() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const instagramUrl = 'https://www.instagram.com/almas.tarot/'; 
+  const navigate = useNavigate();
 
+  const goToHome = () => {
+    navigate('/'); // Adjust the path if your home route is different
+  };
+  const handleRedirect = () => {
+    window.open(instagramUrl, '_blank'); // Opens Instagram in a new tab
+  };
   return (
     <Container
       sx={{
@@ -16,13 +26,34 @@ function Registros() {
         justifyContent: 'center',
         minHeight: '100vh',
         backgroundColor: '#fbe7e8',
-        backgroundImage:  `url(${fondo})`, 
+        backgroundImage: `url(${fondo})`,
         backgroundSize: 'cover',
         padding: isMobile ? '20px' : '40px',
         textAlign: 'center',
       }}
     >
-        <Box
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 16,
+          left: 16,
+          zIndex: 1100,
+        }}
+      >
+        <Fab
+          color="primary"
+          onClick={goToHome}
+          sx={{
+            backgroundColor: '#E1306C',
+            '&:hover': {
+                backgroundColor: '#C13584',
+            },
+          }}
+        >
+          <FaHome size={20} color="white" />
+        </Fab>
+      </Box>
+      <Box
         component="img"
         src={almalogo} // Replace with your logo image URL
         alt="Almas Logo"
@@ -81,8 +112,47 @@ Luego te comparto la información y si lo necesitas, hacemos una videollamada.`}
           boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
         }}
       >
-        Valor de la sesión: $20000
+        Valor de la sesión: $20.000
       </Typography>
+
+      <Box
+                sx={{
+                    position: 'fixed',
+                    bottom: { xs: 16, md: 24 },
+                    right: { xs: 16, md: 24 },
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap:'15px',
+                    zIndex: 1000,
+                }}
+            >
+                <Typography
+                    variant="body1"
+                    sx={{
+                        display: { xs: 'block', sm: 'block' }, // Hidden on extra small screens, shown on small screens and above
+                        color: '#E1306C',
+                        fontWeight: 'bold',
+                    }}
+                >
+                    Contacto
+                </Typography>
+                <Fab
+                    color="secondary"
+                    onClick={handleRedirect}
+                    sx={{
+                        backgroundColor: '#E1306C',
+                        '&:hover': {
+                            backgroundColor: '#C13584',
+                        },
+                        mr: 1, // Margin right to separate the button and text
+                    }}
+                >
+
+                    <FaInstagram size={24} color="white" />
+                </Fab>
+
+
+            </Box>
     </Container>
   );
 }

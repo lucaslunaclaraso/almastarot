@@ -120,22 +120,44 @@ function App() {
         Mi libro "Amor de Almas"
       </Button>
 
-      <Fab
-        color="secondary"
-        onClick={handleRedirect}
+      <Box
         sx={{
           position: 'fixed',
           bottom: { xs: 16, md: 24 },
           right: { xs: 16, md: 24 },
-          backgroundColor: '#E1306C',
-          '&:hover': {
-            backgroundColor: '#C13584',
-          },
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
           zIndex: 1000,
         }}
       >
-        <FaInstagram size={24} color="white" />
-      </Fab>
+        <Typography
+          variant="body1"
+          sx={{
+            display: { xs: 'block', sm: 'block' }, // Hidden on extra small screens, shown on small screens and above
+            color: '#E1306C',
+            fontWeight: 'bold',
+          }}
+        >
+          Contacto
+        </Typography>
+        <Fab
+          color="secondary"
+          onClick={handleRedirect}
+          sx={{
+            backgroundColor: '#E1306C',
+            '&:hover': {
+              backgroundColor: '#C13584',
+            },
+            mr: 1, // Margin right to separate the button and text
+          }}
+        >
+
+          <FaInstagram size={24} color="white" />
+        </Fab>
+
+
+      </Box>
     </Container>
   );
 }

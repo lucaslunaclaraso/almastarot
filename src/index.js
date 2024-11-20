@@ -8,6 +8,7 @@ import Registros from './paginas/Registros';
 import home from './App'
 import Lectura from './paginas/lectura';
 import Encuentros from './paginas/encuentros';
+import Libro from './paginas/libro';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -20,7 +21,7 @@ root.render(
         <Route path="/registros" element={<Registros />} />
         <Route path="/lectura" element={<Lectura />} />
         <Route path="/encuentros" element={<Encuentros />} />
-
+        <Route path="/milibro" element={<Libro />} />
         {/* Additional Routes can be added here */}
         <Route path="/" element={<home />} />
       </Routes>

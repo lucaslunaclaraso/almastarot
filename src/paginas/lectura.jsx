@@ -108,7 +108,7 @@ function Lectura() {
                     boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                Valor de la sesión: $15.000
+                Valor de la sesión: $20.000
             </Typography>
 
 
